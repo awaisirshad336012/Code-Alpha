@@ -1,0 +1,20 @@
+{% extends "store/base.html" %}
+{% block title %}Your Orders — Roast &amp; Ritual{% endblock %}
+{% block content %}
+    <h1>Your orders</h1>
+    {% if orders %}
+        <div class="order-list">
+            {% for order in orders %}
+                <div class="order-row">
+                    <div>
+                        <p class="order-row-title">Order #{{ order.id }}</p>
+                        <p class="order-row-meta">{{ order.created_at|date:"M d, Y" }} · {{ order.get_status_display }}</p>
+                    </div>
+                    <p class="cart-total"><span>${{ order.total_price }}</span></p>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="empty-state">No orders yet. <a href="{% url 'product_list' %}">Start shopping</a>.</p>
+    {% endif %}
+{% endblock %}

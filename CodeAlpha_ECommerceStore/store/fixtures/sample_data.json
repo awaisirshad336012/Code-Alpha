@@ -1,0 +1,146 @@
+[
+  {
+    "model": "store.category",
+    "pk": 1,
+    "fields": {
+      "name": "Coffee",
+      "slug": "coffee"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 2,
+    "fields": {
+      "name": "Tea",
+      "slug": "tea"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 3,
+    "fields": {
+      "name": "Brew Gear",
+      "slug": "brew-gear"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Ethiopia Yirgacheffe",
+      "slug": "ethiopia-yirgacheffe",
+      "description": "Bright, floral, and washed \u2014 notes of jasmine and stone fruit. Small-batch roasted weekly.",
+      "price": "18.50",
+      "stock": 24,
+      "image_url": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800",
+      "is_active": true,
+      "created_at": "2026-08-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Sumatra Dark Roast",
+      "slug": "sumatra-dark-roast",
+      "description": "Bold, earthy, low acidity. A slow-morning kind of cup.",
+      "price": "16.00",
+      "stock": 30,
+      "image_url": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800",
+      "is_active": true,
+      "created_at": "2026-08-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 3,
+    "fields": {
+      "category": 1,
+      "name": "House Espresso Blend",
+      "slug": "house-espresso-blend",
+      "description": "Our everyday blend \u2014 balanced sweetness, built for milk drinks and straight shots alike.",
+      "price": "17.25",
+      "stock": 40,
+      "image_url": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800",
+      "is_active": true,
+      "created_at": "2026-08-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 4,
+    "fields": {
+      "category": 2,
+      "name": "Silver Needle White Tea",
+      "slug": "silver-needle-white-tea",
+      "description": "Delicate, subtly sweet, hand-picked buds only.",
+      "price": "22.00",
+      "stock": 15,
+      "image_url": "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=800",
+      "is_active": true,
+      "created_at": "2026-08-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 5,
+    "fields": {
+      "category": 2,
+      "name": "Smoked Lapsang Souchong",
+      "slug": "smoked-lapsang-souchong",
+      "description": "Pine-smoked black tea with a bold, campfire character.",
+      "price": "14.75",
+      "stock": 20,
+      "image_url": "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=800",
+      "is_active": true,
+      "created_at": "2026-08-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 6,
+    "fields": {
+      "category": 3,
+      "name": "Ceramic Pour-Over Dripper",
+      "slug": "ceramic-pour-over-dripper",
+      "description": "Matte-glazed stoneware dripper, fits standard size-02 filters.",
+      "price": "34.00",
+      "stock": 12,
+      "image_url": "https://images.unsplash.com/photo-1522992319-0365e5f11656?w=800",
+      "is_active": true,
+      "created_at": "2026-08-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 7,
+    "fields": {
+      "category": 3,
+      "name": "Precision Gooseneck Kettle",
+      "slug": "precision-gooseneck-kettle",
+      "description": "Variable-temperature electric kettle for consistent pour-over extraction.",
+      "price": "79.00",
+      "stock": 8,
+      "image_url": "https://images.unsplash.com/photo-1523920290228-4f321a939b4c?w=800",
+      "is_active": true,
+      "created_at": "2026-08-01T09:00:00Z"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 8,
+    "fields": {
+      "category": 3,
+      "name": "Hand Grinder \u2014 Walnut",
+      "slug": "hand-grinder-walnut",
+      "description": "Conical steel burrs, walnut body, stepless grind adjustment.",
+      "price": "58.00",
+      "stock": 0,
+      "image_url": "https://images.unsplash.com/photo-1509785307050-d4066910ec1e?w=800",
+      "is_active": true,
+      "created_at": "2026-08-01T09:00:00Z"
+    }
+  }
+]

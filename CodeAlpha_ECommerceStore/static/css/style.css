@@ -1,0 +1,272 @@
+:root {
+    --bg: #17110d;
+    --surface: #221912;
+    --surface-2: #2c2018;
+    --line: #3a2c20;
+    --text: #f3ede3;
+    --text-muted: #a99c8c;
+    --accent: #c6f135;
+    --accent-ink: #17110d;
+    --danger: #e8874f;
+    --radius: 3px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.55;
+}
+
+h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.5em;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--accent); }
+
+.wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Header */
+.site-header {
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+}
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-mark {
+    font-family: 'IBM Plex Mono', monospace;
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 3px 7px;
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.brand-name { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 600; }
+
+.main-nav { display: flex; align-items: center; gap: 22px; font-size: 0.92rem; }
+.nav-user { color: var(--text-muted); }
+.cart-link { display: flex; align-items: center; gap: 6px; }
+.cart-count {
+    font-family: 'IBM Plex Mono', monospace;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    min-width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+}
+
+/* Messages */
+.messages { margin-top: 18px; }
+.message {
+    padding: 10px 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+.message-success { border-color: var(--accent); }
+.message-error, .message-warning { border-color: var(--danger); }
+
+.page { padding: 40px 24px 80px; }
+
+/* Hero */
+.hero { max-width: 640px; margin-bottom: 36px; }
+.eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    color: var(--accent);
+    margin: 0 0 10px;
+}
+.hero h1 { font-size: 2.2rem; }
+.hero-sub { color: var(--text-muted); }
+
+/* Filter chips */
+.filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.chip {
+    border: 1px solid var(--line);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+.chip-active, .chip:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Product grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+}
+.product-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+.product-card-media { display: block; aspect-ratio: 1; background: var(--surface-2); position: relative; }
+.product-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.media-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 2.4rem;
+    color: var(--text-muted);
+}
+.media-placeholder.large { font-size: 4rem; }
+.badge {
+    position: absolute; top: 10px; right: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    padding: 3px 8px;
+    border-radius: var(--radius);
+}
+.product-card-body { padding: 14px 16px 18px; }
+.product-category {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin: 0 0 4px;
+}
+.product-card-body h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.price {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--accent);
+    font-size: 0.95rem;
+}
+.price-large { font-size: 1.4rem; margin: 10px 0; }
+
+/* Product detail */
+.product-detail { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.product-detail-media {
+    aspect-ratio: 1; background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); overflow: hidden;
+}
+.product-detail-media img { width: 100%; height: 100%; object-fit: cover; }
+.product-detail-info h1 { font-size: 1.8rem; }
+.description { color: var(--text-muted); }
+.stock-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; color: var(--text-muted); }
+.stock-out { color: var(--danger); }
+.add-to-cart-form { display: flex; gap: 10px; align-items: center; margin: 18px 0; }
+.add-to-cart-form input[type=number] {
+    width: 64px; padding: 9px; background: var(--surface-2); border: 1px solid var(--line);
+    color: var(--text); border-radius: var(--radius);
+}
+.back-link { display: inline-block; margin-top: 14px; color: var(--text-muted); font-size: 0.88rem; }
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { opacity: 0.88; color: var(--accent-ink); }
+.btn-small { padding: 6px 12px; font-size: 0.78rem; }
+.btn-text { border: none; background: none; color: var(--text-muted); padding: 4px; text-decoration: underline; }
+.btn-text:hover { color: var(--danger); }
+
+/* Cart table */
+.cart-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+.cart-table th, .cart-table td {
+    text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); font-size: 0.9rem;
+}
+.cart-table th { color: var(--text-muted); font-weight: 500; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.qty-form { display: flex; gap: 6px; align-items: center; }
+.qty-form input { width: 52px; padding: 6px; background: var(--surface-2); border: 1px solid var(--line); color: var(--text); border-radius: var(--radius); }
+
+.cart-summary { display: flex; align-items: center; justify-content: space-between; padding-top: 8px; }
+.cart-total { font-family: 'IBM Plex Mono', monospace; font-size: 1.1rem; }
+.cart-total span { color: var(--accent); }
+
+/* Checkout */
+.checkout-steps { display: flex; gap: 18px; margin-bottom: 30px; font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--text-muted); }
+.step.active { color: var(--accent); }
+.step.done { color: var(--text); }
+.checkout-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start; }
+.checkout-form h2, .order-summary h2 { font-size: 1.1rem; }
+.form-field { margin-bottom: 16px; }
+.form-field label { display: block; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; }
+.form-field input {
+    width: 100%; padding: 10px 12px; background: var(--surface-2); border: 1px solid var(--line);
+    color: var(--text); border-radius: var(--radius); font-family: 'Inter', sans-serif;
+}
+.field-error { color: var(--danger); font-size: 0.8rem; margin: 4px 0 0; }
+.field-hint { color: var(--text-muted); font-size: 0.76rem; margin: 4px 0 0; }
+
+.order-summary { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.order-summary ul { list-style: none; padding: 0; margin: 0 0 14px; }
+.order-summary li, .order-items li {
+    display: flex; justify-content: space-between; font-size: 0.88rem;
+    padding: 8px 0; border-bottom: 1px solid var(--line);
+}
+
+.order-success { max-width: 480px; }
+.order-items { list-style: none; padding: 0; margin: 20px 0; }
+.order-success .cart-total { margin-bottom: 20px; }
+
+/* Order history */
+.order-list { display: flex; flex-direction: column; gap: 10px; }
+.order-row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 14px 18px;
+}
+.order-row-title { margin: 0; font-family: 'Fraunces', serif; }
+.order-row-meta { margin: 4px 0 0; color: var(--text-muted); font-size: 0.8rem; }
+
+/* Auth */
+.auth-form-wrap { max-width: 400px; margin: 0 auto; }
+.auth-form input {
+    width: 100%; padding: 10px 12px; background: var(--surface-2); border: 1px solid var(--line);
+    color: var(--text); border-radius: var(--radius); font-family: 'Inter', sans-serif;
+}
+.auth-switch { margin-top: 16px; color: var(--text-muted); font-size: 0.88rem; }
+.auth-switch a { color: var(--accent); }
+
+.empty-state { color: var(--text-muted); padding: 40px 0; }
+
+.site-footer {
+    border-top: 1px solid var(--line);
+    padding: 24px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+@media (max-width: 720px) {
+    .product-detail, .checkout-grid { grid-template-columns: 1fr; }
+    .header-inner { flex-direction: column; gap: 12px; align-items: flex-start; }
+}

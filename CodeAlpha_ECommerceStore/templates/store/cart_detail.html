@@ -1,0 +1,50 @@
+{% extends "store/base.html" %}
+{% block title %}Your Cart — Roast &amp; Ritual{% endblock %}
+{% block content %}
+    <h1>Your cart</h1>
+
+    {% if cart|length > 0 %}
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart %}
+                    <tr>
+                        <td>
+                            <a href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
+                        </td>
+                        <td>${{ item.product.price }}</td>
+                        <td>
+                            <form action="{% url 'cart_update' item.product.id %}" method="post" class="qty-form">
+                                {% csrf_token %}
+                                <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="{{ item.product.stock }}">
+                                <button type="submit" class="btn btn-small">Update</button>
+                            </form>
+                        </td>
+                        <td>${{ item.subtotal }}</td>
+                        <td>
+                            <form action="{% url 'cart_remove' item.product.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-text">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="cart-summary">
+            <p class="cart-total">Total: <span>${{ cart.total_price }}</span></p>
+            <a href="{% url 'checkout' %}" class="btn btn-primary">Checkout</a>
+        </div>
+    {% else %}
+        <p class="empty-state">Your cart is empty. <a href="{% url 'product_list' %}">Go find something good</a>.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "store/base.html" %}
+{% block title %}Shop — Roast &amp; Ritual{% endblock %}
+{% block content %}
+    <section class="hero">
+        <p class="eyebrow">Small batch · slow brewed</p>
+        <h1>Coffee, tea &amp; the gear that makes the ritual worth it.</h1>
+        <p class="hero-sub">Everything on this shelf is roasted, blended, or sourced in small runs. Browse the batch below.</p>
+    </section>
+
+    <div class="filter-row">
+        <a href="{% url 'product_list' %}" class="chip {% if not active_category %}chip-active{% endif %}">All</a>
+        {% for category in categories %}
+            <a href="?category={{ category.slug }}" class="chip {% if active_category == category %}chip-active{% endif %}">{{ category.name }}</a>
+        {% endfor %}
+    </div>
+
+    {% if products %}
+        <div class="product-grid">
+            {% for product in products %}
+                <article class="product-card">
+                    <a href="{{ product.get_absolute_url }}" class="product-card-media">
+                        {% if product.image_url %}
+                            <img src="{{ product.image_url }}" alt="{{ product.name }}" loading="lazy">
+                        {% else %}
+                            <div class="media-placeholder">{{ product.name|slice:":1" }}</div>
+                        {% endif %}
+                        {% if not product.in_stock %}<span class="badge badge-out">Sold out</span>{% endif %}
+                    </a>
+                    <div class="product-card-body">
+                        <p class="product-category">{{ product.category.name }}</p>
+                        <h3><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h3>
+                        <p class="price">${{ product.price }}</p>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="empty-state">No products in this batch yet — check back soon.</p>
+    {% endif %}
+{% endblock %}

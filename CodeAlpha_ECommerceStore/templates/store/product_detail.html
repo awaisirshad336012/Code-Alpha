@@ -1,0 +1,33 @@
+{% extends "store/base.html" %}
+{% block title %}{{ product.name }} — Roast &amp; Ritual{% endblock %}
+{% block content %}
+    <div class="product-detail">
+        <div class="product-detail-media">
+            {% if product.image_url %}
+                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+            {% else %}
+                <div class="media-placeholder large">{{ product.name|slice:":1" }}</div>
+            {% endif %}
+        </div>
+        <div class="product-detail-info">
+            <p class="product-category">{{ product.category.name }}</p>
+            <h1>{{ product.name }}</h1>
+            <p class="price price-large">${{ product.price }}</p>
+            <p class="description">{{ product.description|default:"No description yet for this one — but it's good, we promise." }}</p>
+
+            {% if product.in_stock %}
+                <p class="stock-note">{{ product.stock }} left in this batch</p>
+                <form action="{% url 'cart_add' product.id %}" method="post" class="add-to-cart-form">
+                    {% csrf_token %}
+                    <label for="quantity">Qty</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{ product.stock }}">
+                    <button type="submit" class="btn btn-primary">Add to cart</button>
+                </form>
+            {% else %}
+                <p class="stock-note stock-out">Sold out — this batch is gone.</p>
+            {% endif %}
+
+            <a href="{% url 'product_list' %}" class="back-link">&larr; Back to shop</a>
+        </div>
+    </div>
+{% endblock %}

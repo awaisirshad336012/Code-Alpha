@@ -1,0 +1,26 @@
+{% extends "store/base.html" %}
+{% block title %}Order confirmed — Roast &amp; Ritual{% endblock %}
+{% block content %}
+    <div class="checkout-steps">
+        <span class="step done">1. Cart</span>
+        <span class="step done">2. Details</span>
+        <span class="step active">3. Confirmation</span>
+    </div>
+
+    <div class="order-success">
+        <h1>Order #{{ order.id }} confirmed</h1>
+        <p>Thanks, {{ order.full_name }} — your batch is being prepared for {{ order.address }}, {{ order.city }}.</p>
+
+        <ul class="order-items">
+            {% for item in order.items.all %}
+                <li>
+                    <span>{{ item.quantity }} × {{ item.product_name }}</span>
+                    <span>${{ item.subtotal }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <p class="cart-total">Total: <span>${{ order.total_price }}</span></p>
+
+        <a href="{% url 'product_list' %}" class="btn btn-primary">Continue shopping</a>
+    </div>
+{% endblock %}

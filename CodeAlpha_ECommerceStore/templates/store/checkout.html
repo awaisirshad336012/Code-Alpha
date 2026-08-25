@@ -1,0 +1,37 @@
+{% extends "store/base.html" %}
+{% block title %}Checkout — Roast &amp; Ritual{% endblock %}
+{% block content %}
+    <div class="checkout-steps">
+        <span class="step done">1. Cart</span>
+        <span class="step active">2. Details</span>
+        <span class="step">3. Confirmation</span>
+    </div>
+
+    <div class="checkout-grid">
+        <form method="post" class="checkout-form">
+            {% csrf_token %}
+            <h2>Shipping details</h2>
+            {% for field in form %}
+                <div class="form-field">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}<p class="field-error">{{ field.errors|striptags }}</p>{% endif %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Place order</button>
+        </form>
+
+        <aside class="order-summary">
+            <h2>Order summary</h2>
+            <ul>
+                {% for item in cart %}
+                    <li>
+                        <span>{{ item.quantity }} × {{ item.product.name }}</span>
+                        <span>${{ item.subtotal }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p class="cart-total">Total: <span>${{ cart.total_price }}</span></p>
+        </aside>
+    </div>
+{% endblock %}
